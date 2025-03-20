@@ -148,6 +148,17 @@ def aggreate_results(output_dir: str):
                 long += 1
                 long_acc += acc
 
+        if easy == 0:
+            easy = 1
+        if hard == 0:
+            hard = 1
+        if short == 0:
+            short = 1
+        if medium == 0:
+            medium = 1
+        if long == 0:
+            long = 1
+            
         name = '.'.join(file.split('.')[:-1])
         output.append(name+'\t'+str(round(100*(easy_acc+hard_acc)/len(pred_data), 1))+'\t'+str(round(100*easy_acc/easy, 1))+'\t'+str(round(100*hard_acc/hard, 1))+'\t'+str(round(100*short_acc/short, 1))+'\t'+str(round(100*medium_acc/medium, 1))+'\t'+str(round(100*long_acc/long, 1)))
 
